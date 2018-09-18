@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     color: 'black'
   },
+  //s
   selectedText: {
     backgroundColor: 'yellow',
     color: 'blue',
