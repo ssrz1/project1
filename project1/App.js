@@ -1,13 +1,33 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
+
 
 export default class App extends React.Component {
-  render() {
+  constructor() {
+    super();
+    this.state = {
+      backgroundColor: 'blue'
+    };
+    this.changeColor = this.changeColor.bind(this)
+  }
+  changeColor(backgroundColor)
+  {
+    this.setState({ backgroundColor  })
+  }
+  render() { 
+    const { backgroundColor } = this.state;
     return (
-      <View style={styles.container}>
-        <Text>Hey, YOU! MR.Syed Sajjad Raza Zaidi</Text>
-        <Text>blah blah blah</Text>
-      </View>
+      <View style={[styles.container, { backgroundColor }]}>
+        
+        <Text 
+        style={styles.button}
+        onPress={() => this.changeColor('green')}>Green</Text>
+        
+        <Text 
+        style={styles.button}
+        onPress={() => this.changeColor('red')}>Red</Text>
+      </View> 
+    
     );
   }
 }
@@ -15,8 +35,20 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center'
   },
+  button: {
+    fontSize: 30,
+    margin: 10,
+    padding: 10,
+    borderWidth: 2,
+    borderRadius: 10,
+    alignSelf: 'stretch',
+    textAlign: 'center'
+
+
+  }
+  
 });
+//why we havent use app registory?
