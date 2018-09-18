@@ -1,38 +1,30 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, Image, View, StatusBar, Dimensions } from 'react-native';
+import splashpic from './assets/index.png'; 
+
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <StatusBar hidden />
-        <Text style={styles.defaultText}>Hey,</Text>
-        <Text style={styles.defaultText}>you</Text>
-        <Text style={styles.defaultText}>MR</Text>
-        <Text style={[styles.defaultText, styles.selectedText]}>Sajjad</Text>
+        <Image style={styles.pic} source={splashpic} />
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
-  defaultText: {
-    fontSize: 22,
-    padding: 10,
-    margin: 5,
-    borderWidth: StyleSheet.hairlineWidth,
-    color: 'black'
-  },
   container: {
-    flexDirection: 'row',
-    backgroundColor: '#DDD',
-    justifyContent: 'center'
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  //s
-  selectedText: {
-    backgroundColor: 'yellow',
-    color: 'blue',
-    fontWeight: 'bold'
-   }
-})
+  pic: {
+    flex: 1,
+    //taking dimensions of full window(any Screen) and taking width out of it as wide as screen.
+    width: Dimensions.get('window').width
+
+  }
+});
 //why we havent use app registory?
