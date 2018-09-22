@@ -1,38 +1,53 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
+
 
 export default class App extends React.Component {
-  render() {
+  constructor() {
+    super();
+    this.state = {
+      backgroundColor: 'blue'
+    };
+    this.changeColor = this.changeColor.bind(this)
+  }
+  changeColor(backgroundColor)
+  {
+    this.setState({ backgroundColor  })
+  }
+  render() { 
+    const { backgroundColor } = this.state;
     return (
-      <View style={styles.container}>
-        <StatusBar hidden />
-        <Text style={styles.defaultText}>Hey,</Text>
-        <Text style={styles.defaultText}>you</Text>
-        <Text style={styles.defaultText}>MR</Text>
-        <Text style={[styles.defaultText, styles.selectedText]}>Sajjad</Text>
-      </View>
-    )
+      <View style={[styles.container, { backgroundColor }]}>
+        
+        <Text 
+        style={styles.button}
+        onPress={() => this.changeColor('green')}>Green</Text>
+        
+        <Text 
+        style={styles.button}
+        onPress={() => this.changeColor('red')}>Red</Text>
+      </View> 
+    
+    );
   }
 }
 
 const styles = StyleSheet.create({
-  defaultText: {
-    fontSize: 22,
-    padding: 10,
-    margin: 5,
-    borderWidth: StyleSheet.hairlineWidth,
-    color: 'black'
-  },
   container: {
-    flexDirection: 'row',
-    backgroundColor: '#DDD',
-    justifyContent: 'center'
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  //s
-  selectedText: {
-    backgroundColor: 'yellow',
-    color: 'blue',
-    fontWeight: 'bold'
-   }
-})
-//why we havent use app registory?
+  button: {
+    fontSize: 30,
+    margin: 10,
+    padding: 10,
+    borderWidth: 2,
+    borderRadius: 10,
+    alignSelf: 'stretch',
+    textAlign: 'center'
+
+
+  }
+  
+});
