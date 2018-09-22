@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 
 
 export default class App extends React.Component {
@@ -8,22 +8,31 @@ export default class App extends React.Component {
     this.state = {
       backgroundColor: 'blue'
     };
-    this.changeColor = this.changeColor.bind(this)
+    this.changeColor = this.changeColor.bind(this);
   }
-  changeColor(backgroundColor)
-  {
-    this.setState({ backgroundColor  })
+  changeColor(backgroundColor)  {
+    this.setState({ backgroundColor });
   }
   render() { 
     const { backgroundColor } = this.state;
     return (
       <View style={[styles.container, { backgroundColor }]}>
-        
-        <View style={styles.row}>
-        <View style={styles.sample} />
-        <Text styel={styles.text}>Yellow!</Text>
 
-        </View>
+        <TouchableHighlight
+         style={styles.button}
+        onPress={() => this.changeColor('yellow')}
+        underlayColor="orange"
+        >
+          <View style={styles.row}>
+          <View
+                style={[styles.sample,
+                       { backgroundColor: 'yellow' }
+          ]}
+          />
+          <Text style={styles.text}>Yellow!</Text>
+
+          </View>
+        </TouchableHighlight>
       </View> 
     
     );
@@ -46,7 +55,7 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   row: {
-    flexDirextion: 'row',
+    flexDirection: 'row',
     alignItems: 'center'
 
   },
