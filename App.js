@@ -44,8 +44,23 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignSelf: 'stretch',
     textAlign: 'center'
+  },
+  row: {
+    flexDirextion: 'row',
+    alignItems: 'center'
 
+  },
+  sample: {
+    height: 20,
+    width: 20,
+    borderRadius: 10,
+    margin: 5,
+    backgroundColor: 'white'
 
+  },
+  text: {
+    fontSize: 30,
+    margin: 5
   }
   
 });
