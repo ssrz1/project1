@@ -19,13 +19,11 @@ export default class App extends React.Component {
     return (
       <View style={[styles.container, { backgroundColor }]}>
         
-        <Text 
-        style={styles.button}
-        onPress={() => this.changeColor('green')}>Green</Text>
-        
-        <Text 
-        style={styles.button}
-        onPress={() => this.changeColor('red')}>Red</Text>
+        <View style={styles.row}>
+        <View style={styles.sample} />
+        <Text styel={styles.text}>Yellow!</Text>
+
+        </View>
       </View> 
     
     );
