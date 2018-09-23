@@ -3,25 +3,21 @@ import {
         StyleSheet,
         Text,
         View,
-        TouchableHighlight } from 'react-native';
+        TouchableHighlight 
+        } from 'react-native';
 
-        const ColorButton = () => {
-         <TouchableHighlight
-         style={styles.button}
-        onPress={() => this.changeColor('yellow')}
-        underlayColor="orange"
-        >
-          <View style={styles.row}>
-          <View
-                style={[styles.sample,
-                       { backgroundColor: 'yellow' }
-          ]}
-          />
-          <Text style={styles.text}>Yellow!</Text>
+        const ColorButton = ({ backgroundColor, onSelect = f => f }) => {
+        
+          <TouchableHighlight style={styles.button}
+            onPress={() => onSelect(backgroundColor)}
+            underlayColor="orange">
 
-          </View>
-        </TouchableHighlight>
-        }
+            <View style={styles.row}>
+              <View style={[styles.sample, { backgroundColor }]} />
+              <Text style={styles.text}>Yellow!</Text>
+            </View>
+          </TouchableHighlight>
+        };
         const styles = StyleSheet.create({
            
             button: {
@@ -52,3 +48,4 @@ import {
             }
             
           });
+export default ColorButton;

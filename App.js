@@ -1,38 +1,38 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { AppRegistry, StyleSheet, View } from 'react-native';
+import ColorButton from './components/ColorButton';
 
 export default class App extends React.Component {
-  render() {
+  constructor() {
+    super();
+    this.state = {
+      backgroundColor: 'blue'
+    };
+    this.changeColor = this.changeColor.bind(this);
+  }
+  changeColor(backgroundColor) {
+    this.setState({ backgroundColor });
+  }
+
+  render() { 
+    const { backgroundColor } = this.state;
     return (
-      <View style={styles.container}>
-        <StatusBar hidden />
-        <Text style={styles.defaultText}>Hey,</Text>
-        <Text style={styles.defaultText}>you</Text>
-        <Text style={styles.defaultText}>MR</Text>
-        <Text style={[styles.defaultText, styles.selectedText]}>Sajjad</Text>
-      </View>
-    )
+      <View style={[styles.container, { backgroundColor }]}>
+      <ColorButton backgroundColor='red' />
+      </View> 
+    
+    );
   }
 }
 
 const styles = StyleSheet.create({
-  defaultText: {
-    fontSize: 22,
-    padding: 10,
-    margin: 5,
-    borderWidth: StyleSheet.hairlineWidth,
-    color: 'black'
-  },
   container: {
-    flexDirection: 'row',
-    backgroundColor: '#DDD',
-    justifyContent: 'center'
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF'
   },
-  //s
-  selectedText: {
-    backgroundColor: 'yellow',
-    color: 'blue',
-    fontWeight: 'bold'
-   }
-})
-//why we havent use app registory?
+ 
+});
+
+AppRegistry.registerComponent('project1', () => App)
